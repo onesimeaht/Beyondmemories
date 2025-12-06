@@ -270,6 +270,7 @@ export const AddBubbleModal: React.FC<AddBubbleModalProps> = ({ onClose, onAdd }
             <input
               type="date"
               value={date}
+              max={new Date().toISOString().split('T')[0]}
               onChange={(e) => setDate(e.target.value)}
               style={{
                 width: '100%',

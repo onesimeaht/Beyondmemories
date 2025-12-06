@@ -5,6 +5,14 @@
 
     RewriteEngine On
 
+    # Configuration pour l'upload de fichiers lourds
+    php_value upload_max_filesize 100M
+    php_value post_max_size 500M
+    php_value max_file_uploads 50
+    php_value memory_limit 512M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

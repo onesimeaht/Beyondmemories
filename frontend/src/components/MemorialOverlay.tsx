@@ -474,6 +474,7 @@ export const MemorialOverlay: React.FC<MemorialOverlayProps> = ({ data, onClose,
                       <input
                         type="date"
                         value={newEvent.date}
+                        max={new Date().toISOString().split('T')[0]}
                         onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
                         style={{
                           width: '100%',

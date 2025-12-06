@@ -26,7 +26,7 @@ class MemoryController extends Controller
 
             $request->validate([
                 'files.*' => 'required|file|mimes:jpg,jpeg,png,gif,mp4,mov,avi|max:51200', // 50MB max
-                'taken_at' => 'nullable|string',
+                'taken_at' => 'nullable|date|before_or_equal:today',
                 'name' => 'nullable|string|max:255',
                 'description' => 'nullable|string',
             ]);
@@ -41,6 +41,14 @@ class MemoryController extends Controller
             if ($takenAt) {
                 try {
                     $parsedDate = \Carbon\Carbon::parse($takenAt);
+                    // Double vérification : ne pas accepter les dates futures
+                    if ($parsedDate->isFuture()) {
+                        Log::warning('Date future refusée: ' . $takenAt);
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'La date ne peut pas être dans le futur',
+                        ], 422);
+                    }
                 } catch (\Exception $e) {
                     Log::warning('Date invalide: ' . $takenAt);
                     $parsedDate = now();

@@ -16,4 +16,5 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(fn() => true);
+        $exceptions->dontFlash(['current_password', 'password', 'password_confirmation']);
     })->create();

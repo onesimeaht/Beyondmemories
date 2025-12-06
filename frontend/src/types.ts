@@ -1,8 +1,10 @@
-export enum BubbleType {
-  PERSON = 'PERSON',
-  EVENT = 'EVENT',
-  PET = 'PET'
-}
+export const BubbleType = {
+  PERSON: 'PERSON',
+  EVENT: 'EVENT',
+  PET: 'PET'
+} as const;
+
+export type BubbleType = typeof BubbleType[keyof typeof BubbleType];
 
 export interface TimelineEvent {
   id: string;

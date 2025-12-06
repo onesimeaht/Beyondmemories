@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars, Sparkles } from '@react-three/drei';
 import { Bubble3D } from './Bubble3D';
-import { BubbleData } from '../types';
+import type { BubbleData } from '../types';
 
 interface OceanSceneProps {
   bubbles: BubbleData[];

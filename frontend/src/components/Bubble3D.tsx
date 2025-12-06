@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text, Float, Billboard } from '@react-three/drei';
 import { Mesh, TextureLoader, DoubleSide } from 'three';
-import { BubbleData } from '../types';
+import type { BubbleData } from '../types';
 
 interface Bubble3DProps {
   data: BubbleData;
@@ -10,7 +10,7 @@ interface Bubble3DProps {
   isSelected: boolean;
 }
 
-export const Bubble3D: React.FC<Bubble3DProps> = ({ data, onClick, isSelected }) => {
+export const Bubble3D: React.FC<Bubble3DProps> = ({ data, onClick }) => {
   const bubbleRef = useRef<Mesh>(null);
   const imageRef = useRef<Mesh>(null);
   const [hovered, setHovered] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Image as ImageIcon, Heart, Share2, Trash2, Plus, MapPin, FileText, Upload, Edit2 } from 'lucide-react';
-import { BubbleData, TimelineEvent } from '../types';
+import type { BubbleData, TimelineEvent } from '../types';
 import { api } from '../api';
 
 interface MemorialOverlayProps {

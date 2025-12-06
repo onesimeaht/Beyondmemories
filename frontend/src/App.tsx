@@ -3,9 +3,11 @@ import { OceanScene } from './components/OceanScene';
 import { UIOverlay } from './components/UIOverlay';
 import { MemorialOverlay } from './components/MemorialOverlay';
 import { AddBubbleModal } from './components/AddBubbleModal';
-import { BubbleData, BubbleType } from './types';
+import type { BubbleData } from './types';
+import { BubbleType } from './types';
 import { AnimatePresence } from 'framer-motion';
-import { api, Memory } from './api';
+import { api } from './api';
+import type { Memory } from './api';
 
 // Convertir Memory API -> BubbleData
 const memoryToBubble = (memory: Memory, index: number): BubbleData => {
